@@ -34,43 +34,40 @@ cd 76b450a0c986e576e98b
 sudo mv docker-cleanup /usr/local/bin/docker-cleanup
 sudo chmod +x /usr/local/bin/docker-cleanup
 
-# # install docker engine
-# echo "install docker engine"
-# # ref: http://docs.docker.com/engine/installation/ubuntulinux/
-# sudo apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-# echo "deb https://apt.dockerproject.org/repo ubuntu-vivid main" > /etc/apt/sources.list.d/docker.list
-# apt-get update
-# apt-get purge lxc-docker*
-# apt-cache policy docker-engine
-# apt-get install -y docker-engine
-# service docker start
-# sudo groupadd docker
-# sudo gpasswd -a vagrant docker
-# sudo service docker restart
-# # a log out and login again is recommended by documentation
-#
-# # install docker-machine
-# echo "install docker-machine"
-# # ref: https://docs.docker.com/machine/install-machine/
-# curl -L https://github.com/docker/machine/releases/download/v0.5.0/docker-machine_linux-amd64.zip >machine.zip && \
-# unzip machine.zip && \
-# rm machine.zip && \
-# mv docker-machine* /usr/local/bin
-#
-# # install docker-compose
-# echo "install docker-compose"
-# sudo curl -o /usr/local/bin/docker-compose -L https://github.com/docker/compose/releases/download/VERSION_NUM/docker-compose-`uname -s`-`uname -m`
-# sudo chmod +x /usr/local/bin/docker-compose
-
-
 # programming languages
 apt-get install -y nodejs
 apt-get install -y golang
 
-#install ruby
+# install ruby
 echo "install ruby"
 sudo apt-get install -y ruby-full
 sudo gem install bundler
+
+# install dnvm
+curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh
+sudo -s source ~/.dnx/dnvm/dnvm.sh
+
+# install DNX for .NET Core
+sudo apt-get install -y libunwind8 gettext libssl-dev libcurl3-dev zlib1g libicu-dev
+dnvm upgrade -r coreclr
+
+# install DNX for Mono
+# install mono ref: http://www.mono-project.com/docs/getting-started/install/linux/#debian-ubuntu-and-derivatives
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
+sudo apt-get update
+dnvm upgrade -r mono
+
+# install libuv
+sudo apt-get install -y make automake libtool curl
+curl -sSL https://github.com/libuv/libuv/archive/v1.4.2.tar.gz | sudo tar zxfv - -C /usr/local/src
+cd /usr/local/src/libuv-1.4.2
+sudo sh autogen.sh
+sudo ./configure
+sudo make
+sudo make install
+sudo rm -rf /usr/local/src/libuv-1.4.2 && cd ~/
+sudo ldconfig
 
 # restart the machine finally
 sudo reboot
