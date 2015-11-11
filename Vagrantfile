@@ -5,4 +5,5 @@ Vagrant.configure(2) do |config|
   end
   config.vm.provision "shell", path: "bootstrap.sh"
   config.vm.synced_folder "../", "/vagrant", type: "smb"
+  config.vm.network "private_network", ip: "192.168.98.100"  
 end
