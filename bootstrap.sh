@@ -26,5 +26,10 @@ sudo sh -c "curl -L https://github.com/docker/compose/releases/download/1.4.2/do
 sudo chmod +x /usr/local/bin/docker-compose
 sudo sh -c "curl -L https://raw.githubusercontent.com/docker/compose/1.4.2/contrib/completion/bash/docker-compose > /etc/bash_completion.d/docker-compose"
 
+# dnvm install
+curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh && source ~/.dnx/dnvm/dnvm.sh
+dnvm upgrade -r mono
+dnvm upgrade -r coreclr
+
 # restart the machine finally
 sudo reboot
