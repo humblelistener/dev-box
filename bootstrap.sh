@@ -33,5 +33,8 @@ curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX
 dnvm upgrade -r mono
 dnvm upgrade -r coreclr
 
+# aws ecs cli
+sudo curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest
+
 # restart the machine finally
 sudo reboot
