@@ -12,7 +12,7 @@ sudo true
 
 # Add Docker PPA and install latest version
 sudo apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-echo "deb https://apt.dockerproject.org/repo ubuntu-vivid main" | sudo tee -a /etc/apt/sources.list.d/docker.list > /dev/null
+echo "deb https://apt.dockerproject.org/repo ubuntu-wily main" | sudo tee -a /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 # Install kernel extra's to enable docker aufs support
 sudo apt-get -y install linux-image-extra-$(uname -r)
@@ -22,9 +22,9 @@ sudo gpasswd -a vagrant docker
 sudo service docker restart
 
 # Install docker-compose
-sudo sh -c "curl -L https://github.com/docker/compose/releases/download/1.4.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"
+sudo sh -c "curl -L https://github.com/docker/compose/releases/download/1.6.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"
 sudo chmod +x /usr/local/bin/docker-compose
-sudo sh -c "curl -L https://raw.githubusercontent.com/docker/compose/1.4.2/contrib/completion/bash/docker-compose > /etc/bash_completion.d/docker-compose"
+sudo sh -c "curl -L https://raw.githubusercontent.com/docker/compose/1.6.2/contrib/completion/bash/docker-compose > /etc/bash_completion.d/docker-compose"
 
 # dnvm install
 sudo apt-get install -yy unzip libunwind8 gettext libssl-dev libcurl4-openssl-dev zlib1g libicu-dev uuid-dev
