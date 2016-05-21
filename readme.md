@@ -1,5 +1,5 @@
 # Dev box
-In my current dev set up, we have a windows box where we have all our code. 
+In my current dev set up, we have a windows box where we have all our code.
 However since we adopted to docker, there has been a constant struggle with features not working on Windows.
 
 This dev box is a solution to address this frustration.
@@ -16,10 +16,8 @@ If only docker worked well on windows box, I wouldn't have needed it. There edge
 ## What softwares are installed?
 - Docker
 - Docker compose
-- git
 
 ## Secrets?
 The dev box is designed to have no secrets in it.
 
 ## Convention used
-
