@@ -6,6 +6,8 @@ Vagrant.configure(2) do |config|
     vb.cpus = 4
   end
   config.vm.provision "shell", path: "bootstrap.sh"
+  config.vm.synced_folder ".", "/vagrant", disabled: false
   config.vm.synced_folder "../", "/code", type: "smb"
+  config.vm.synced_folder "../../.devssh", "/devssh", type: "smb", mount_options: ["dir_mode=755", "file_mode=644"]  
   config.vm.network "private_network", ip: "192.168.98.100"
 end
