@@ -24,7 +24,7 @@ sudo groupadd docker
 sudo usermod -aG docker vagrant
 
 echo "--------------- installing docker compose 1.7.1 ---------------"
-sudo curl -Lo /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m`
+sudo curl -Lo /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m`
 sudo chmod +x /usr/local/bin/docker-compose
 
 echo "--------------- finished installing, use vagrant ssh to begin enjoying ---------------"
