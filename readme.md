@@ -7,6 +7,8 @@ This dev box is a solution to address this frustration.
 This dev box installs very few docker tools on ubuntu and SMB's all the files in the parent folder to the vagrant box.
 This will allow you to work on the code directly from the vagrant box without having any secrets spilled into the vagrant box.
 
+Vagrant box uses VirtualBox and this requires Hyper-V turned off on your Windows box (Control panel > Turn Windows features on or off)
+
 ## Purpose
 To easy set up a linux dev box that contains the docker tools to develop microservices.
 
